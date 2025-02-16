@@ -1,4 +1,7 @@
 let nombresSorteados = [];
+let sorteoIndice = 0;
+
+
 
 
 function agregarAmigo(text) {
@@ -30,6 +33,12 @@ nombresSorteados.forEach(nombre => {
 });
 }
 
- 
+function sortearAmigo() {
 
-    
+sorteoIndice = Math.floor(Math.random()*nombresSorteados.length);
+let amigoSorteado = nombresSorteados[sorteoIndice];
+let resultado = document.getElementById('resultao');
+resultado.textContent = `Tu amigo Secreto es ${amigoSorteado}.`
+
+}
+
