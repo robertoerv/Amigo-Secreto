@@ -90,6 +90,8 @@ body {
 .button-container {
     width: 300px;
     justify-content: center;
+    display: flex;
+    gap: 10px;
 }
 
 /* Estilos de entrada de texto */
@@ -159,4 +161,22 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+li {
+background-color: var(--color-primary);
+padding: 8px 35px;
+margin-bottom: 10px;
+color: #FFF9EB;
+text-align: center;
+border-radius: 15px;
+}
+.button-draw:disabled{
+    background-color: rgb(87, 87, 87)
+}
+#nuevoBtn {
+    
+    color: var(--color-white);
+    background-color: var(--color-button);
+    font-size: 16px;
 }

@@ -1,32 +1,27 @@
 let nombresSorteados = [];
-let sorteoIndice = 0;
-
-
-
 
 function agregarAmigo(text) {
-    let nombreEscrito = document.getElementById('amigo').value;
+    let nombreEscrito = document.getElementById('amigo');
 
-    if (nombreEscrito === ''){
-    alert('Porfavor, inserte un nombre.')}
-      else {
-      nombresSorteados.push(nombreEscrito);
-      limpiarCaja('amigo','');
-      limpiarMensaje('resultao', '');
-      
-      console.log(nombresSorteados);
-      crearLista();
-    } 
+      if (nombreEscrito.value === ''){
+        alert('Porfavor, inserte un nombre.');
+      return;
   }
+    nombresSorteados.push(nombreEscrito.value);
+      limpiarCaja('amigo', 'input');
+      limpiarCaja('resultao', 'text');
+      crearLista();
+      nombreEscrito.focus();
+    }
 
-function limpiarMensaje(id, text) {
-    let textoCaja =document.getElementById(id);
-    textoCaja.textContent = text;}
-
-
-function limpiarCaja(id, text) {
-    let textoCaja =document.getElementById(id);
-    textoCaja.value = text;}
+function limpiarCaja(id, tipo) {
+    let textoCaja = document.getElementById(id);
+      if(tipo === 'input'){
+        textoCaja.value = '';
+    }
+      else{
+        textoCaja.textContent='';
+    }}
 
 function crearLista () {
     let lista = document.getElementById('listaAmigos');
@@ -34,8 +29,8 @@ function crearLista () {
     nombresSorteados.forEach(nombre => {
     let li = document.createElement('li');
     li.textContent = nombre;
+    
     lista.appendChild(li);
-
     });
   }
 
@@ -44,16 +39,41 @@ function resultadoFinal(){
     sorteoIndice = Math.floor(Math.random()*nombresSorteados.length);
     let amigoSorteado = nombresSorteados[sorteoIndice];
 
-    resultado.textContent = `Tu amigo Secreto es ${amigoSorteado}.`
+    resultado.textContent = `Tu amigo Secreto es: ${amigoSorteado}.`
+    let btn = document.getElementById('btn');
+    btn.disabled =true;  
+    crearBtn();
   }
  
 function sortearAmigo() { 
     let resultado =document.getElementById('resultao');
 
-    if (nombresSorteados.length === 0){
-    resultado.textContent = 'Falta agregar nombres';
+    if (nombresSorteados.length <= 1){
+      resultado.textContent = 'Falta agregar nombres';
+    
     }
-    else {
-    resultadoFinal();
+      else {
+      resultadoFinal();
+    
     } 
   }
+  
+  function crearBtn() {
+   
+   let divButton = document.querySelector('.button-container');
+   if(!divButton){ 
+    alert('no exite boton')
+    return;
+   }
+   let nuevoBtn = document.createElement("button");
+   nuevoBtn.textContent = 'Reset';
+   nuevoBtn.id ='nuevoBtn';
+   nuevoBtn.onclick = resetear;   
+
+  divButton.appendChild(nuevoBtn);  
+  }
+  function resetear() {
+    location.reload(); 
+  }
+ 
+ 
