@@ -163,13 +163,18 @@ ul {
     background-color: var(--color-button-hover);
 }
 
-li {
+.li-new {
 background-color: var(--color-primary);
-padding: 8px 35px;
+padding: 10px 10px 10px 10px;
 margin-bottom: 10px;
 color: #FFF9EB;
-text-align: center;
+text-align: right;
 border-radius: 15px;
+text-wrap: 2px;
+
+
+
+
 }
 .button-draw:disabled{
     background-color: rgb(87, 87, 87)
@@ -179,4 +184,23 @@ border-radius: 15px;
     color: var(--color-white);
     background-color: var(--color-button);
     font-size: 16px;
+}
+.boton-borrar{
+    color: var(--color-white);
+    border-radius: none;
+    background-color: var(--color-primary);
+    text-align: right;
+    box-shadow: none;
+    border: none;
+    text-align: right;
+    padding: 2px 0px 6px 18px;
+}
+.name-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding-right: 60px;
+    padding-left: 60px;
+
+
 }
